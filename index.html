@@ -3,124 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced Temperature Converter</title>
+    <title>Portfolio</title>
     <style>
-        
-
         body {
             font-family: Arial, sans-serif;
-            background-color: #60def4;
             margin: 0;
             padding: 0;
+        }
+        header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #00c4c4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 28px;
+    color: #eff7ef;
+}
+
+.logo span {
+    color: #ecf7f4;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #f7faf9;
+}
+        .container {
             display: flex;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
-        }
-
-        .converter {
-            background-color: #fdfdfd;
+            justify-content: space-between;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
         }
-
-        input[type="number"] {
-            padding: 10px;
-            width: 80%;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
+        .content {
+            max-width: 50%;
         }
-
-        select {
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-            width: 80%;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #28a745;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #218838;
-        }
-
-        .result {
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: bold;
+        .profile-pic {
+            max-width: 50vh;
+            height: 50vh;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
         }
     </style>
 </head>
 <body>
-    <div class="converter">
-        <h2>Temperature Converter</h2>
-        <input type="number" id="tempInput" placeholder="Enter temperature">
-        <select id="tempUnit">
-            <option value="celsius">Celsius to Fahrenheit</option>
-            <option value="fahrenheit">Fahrenheit to Celsius</option>
-            <option value="celsiusToKelvin">Celsius to Kelvin</option>
-            <option value="kelvinToCelsius">Kelvin to Celsius</option>
-            <option value="fahrenheitToKelvin">Fahrenheit to Kelvin</option>
-            <option value="kelvinToFahrenheit">Kelvin to Fahrenheit</option>
-        </select><br>
-        <button onclick="convertTemperature()">Convert</button>
-        <div class="result" id="result"></div>
+        <header>
+            <div class="logo">portfolio<span>+</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Hire Me</a></li>
+                </ul>
+            </nav>
+        </header>
+    <div class="container">
+        <div class="content">
+            <h1>Hi, I am Anantha kumar C</h1>
+            <p>This is my Official Portfolio Website to show all details and work experience in Full Stack Development.</p>
+            <input type="button" value="Download CV">
+        </div>
+        <div class="image">
+            <img src="sample.jpg" alt="Anantha Kumar C" class="profile-pic">
+        </div>
     </div>
-
-    <script>
-        function convertTemperature() {
-            let temp = document.getElementById("tempInput").value;
-            let unit = document.getElementById("tempUnit").value;
-            let result = 0;
-
-            if (isNaN(temp) || temp === "") {
-                document.getElementById("result").innerHTML = "Please enter a valid number.";
-                return;
-            }
-
-            switch (unit) {
-                case "celsius":
-                    result = (temp * 9/5) + 32;
-                    document.getElementById("result").innerHTML = ${temp}°C is equal to ${result.toFixed(2)}°F;
-                    break;
-                case "fahrenheit":
-                    result = (temp - 32) * 5/9;
-                    document.getElementById("result").innerHTML = ${temp}°F is equal to ${result.toFixed(2)}°C;
-                    break;
-                case "celsiusToKelvin":
-                    result = parseFloat(temp) + 273.15;
-                    document.getElementById("result").innerHTML = ${temp}°C is equal to ${result.toFixed(2)}K;
-                    break;
-                case "kelvinToCelsius":
-                    result = temp - 273.15;
-                    document.getElementById("result").innerHTML = ${temp}K is equal to ${result.toFixed(2)}°C;
-                    break;
-                case "fahrenheitToKelvin":
-                    result = (parseFloat(temp) + 459.67) * 5/9;
-                    document.getElementById("result").innerHTML = ${temp}°F is equal to ${result.toFixed(2)}K;
-                    break;
-                case "kelvinToFahrenheit":
-                    result = (temp * 9/5) - 459.67;
-                    document.getElementById("result").innerHTML = ${temp}K is equal to ${result.toFixed(2)}°F;
-                    break;
-                default:
-                    document.getElementById("result").innerHTML = "Please select a valid conversion.";
-            }
-        }
-    </script>
 </body>
 </html>
